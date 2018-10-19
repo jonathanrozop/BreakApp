@@ -11,7 +11,7 @@ export class TabsPage {
   locationsRoot = 'LocationsPage';
   shoppingRoot = 'ShoppingPage';
   profileRoot = 'ProfilePage';
-  selectTab = 0;
+  selectTab = 1;
 
 
   constructor(
