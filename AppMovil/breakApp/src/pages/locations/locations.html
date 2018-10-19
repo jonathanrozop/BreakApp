@@ -1,9 +1,3 @@
-<!--
-  Generated template for the LocationsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -13,95 +7,113 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-card>
-
-    <img src="assets/imgs/panaderia1.gif">
-    <ion-fab right top>
-      <button ion-fab>
-        <ion-icon name="pin"></ion-icon>
-      </button>
-    </ion-fab>
-
-    <ion-item>
-      <ion-icon name="restaurant" item-start large></ion-icon>
-      <h2>Panaderia Castipan</h2>
-      <p>Calle 76 # 45-32</p>
-      <button ion-button icon-start clear item-end color="rate">
-        <span>2</span>
-        <ion-icon name="star"></ion-icon>
-      </button>
-    </ion-item>
+<ion-content class="cards-bg">
+<ion-item>
+    <ion-segment [(ngModel)]="options">
+      <ion-segment-button value="distancia">
+        Distancia
+      </ion-segment-button>
+      <ion-segment-button value="favoritos">
+        Favoritos
+      </ion-segment-button>
+      <ion-segment-button value="calificacion">
+        Calificación
+      </ion-segment-button>
+    </ion-segment>
+  </ion-item>
 
 
-    <ion-item color="light">
-      <span item-start>18 min</span>
-      <span item-start>(2.6 km)</span>
-      <button ion-button icon-start clear item-end>
-        <ion-icon name="navigate"></ion-icon>
-        Ir
-      </button>
-    </ion-item>
 
-  </ion-card>
+    <ion-card class="adv-map">
+      <div style="position: relative">
+      <img src="assets/imgs/panaderia1.gif">
+        <ion-fab right top>
+          <button ion-fab class="fab-map">
+            <ion-icon name='pin'></ion-icon>
+          </button>
+        </ion-fab>
+      </div>
+      <ion-item>
+        <ion-icon name="restaurant" color="subtle" item-start large></ion-icon>
+        <h2>Panaderia Castipan</h2>
+        <p>Calle 76 # 45-32</p>
+        <button ion-button icon-start clear item-end color="rate">
+          <ion-icon name="star"></ion-icon>
+          <div>3 Estrellas</div>
+        </button>
+      </ion-item>
 
-  <ion-card>
+      <ion-item actions color="light">
+        <span ion-text item-start color="secondary" class="item-bold">18 min</span>
+        <span ion-text item-start color="subtle">(2.6 km)</span>
+        <button ion-button color="primary" clear item-end icon-start>
+          <ion-icon name='navigate'></ion-icon>
+          Ir
+        </button>
+      </ion-item>
 
-    <img src="assets/imgs/panaderia2.jpg">
-    <ion-fab right top>
-      <button ion-fab>
-        <ion-icon name="pin"></ion-icon>
-      </button>
-    </ion-fab>
+    </ion-card>
 
-    <ion-item>
-      <ion-icon name="restaurant" item-start large></ion-icon>
-      <h2>Panaderia Coco</h2>
-      <p>Calle 76 # 45-32</p>
-      <button ion-button icon-start clear item-end color="rate">
-        <span>5</span>
-        <ion-icon name="star"></ion-icon>
-      </button>
-    </ion-item>
+    <ion-card class="adv-map">
+      <div style="position: relative">
+        <img src="assets/imgs/panes.jpg">
 
-    <ion-item color="light">
-      <span item-start>6 min</span>
-      <span item-start>(1 km)</span>
-      <button ion-button icon-start clear item-end>
-        <ion-icon name="navigate"></ion-icon>
-        Ir
-      </button>
-    </ion-item>
+        <ion-fab right top>
+          <button ion-fab color="danger" class="fab-map">
+            <ion-icon name="pin"></ion-icon>
+          </button>
+        </ion-fab>
+      </div>
+      <ion-item>
+        <ion-icon color="subtle" large item-start name='restaurant'></ion-icon>
+        <h2>Panaderia Coco</h2>
+        <p>Calle 76 # 45-32</p>
+        <button ion-button icon-start clear item-end color="rate">
+          <ion-icon name="star"></ion-icon>
+          <div>4 Estrellas</div>
+        </button>
+      </ion-item>
 
-  </ion-card>
+      <ion-item actions color="light">
+        <span ion-text item-start color="secondary" class="item-bold">1 hr</span>
+        <span ion-text item-start color="subtle">(25 k)</span>
+        <button ion-button color="danger" clear item-end icon-start>
+          <ion-icon name='navigate'></ion-icon>
+          Ir
+        </button>
+      </ion-item>
 
-  <ion-card>
+    </ion-card>
 
-    <img src="assets/imgs/panes.jpg">
-    <ion-fab right top>
-      <button ion-fab>
-        <ion-icon name="pin"></ion-icon>
-      </button>
-    </ion-fab>
+    <ion-card class="adv-map">
+      <div style="position: relative">
+        <img src="assets/imgs/panaderia2.jpg">
+        <ion-fab right top>
+          <button ion-fab color="secondary">
+            <ion-icon name="pin"></ion-icon>
+          </button>
+        </ion-fab>
+      </div>
+      <ion-item>
+        <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
+        <h2>Panaderia Rapi Pan</h2>
+        <p>Calle 76 # 45-32</p>
+        <button ion-button icon-start clear item-end color="rate">
+          <ion-icon name="star"></ion-icon>
+          <div>1 Estrella</div>
+        </button>
+      </ion-item>
 
-    <ion-item>
-      <ion-icon name="restaurant" item-start large></ion-icon>
-      <h2>Panaderia Rapi Pan</h2>
-      <p>Calle 76 # 45-32</p>
-      <button ion-button icon-start clear item-end color="rate">
-        <span>2</span>
-        <ion-icon name="star"></ion-icon>
-      </button>
-    </ion-item>
+      <ion-item actions color="light">
+        <span ion-text item-start color="secondary" class="item-bold">26 min</span>
+        <span ion-text item-start color="subtle">(8.1 km)</span>
+        <button ion-button color="secondary" clear item-end icon-start>
+          <ion-icon name='navigate'></ion-icon>
+          Ir
+        </button>
+      </ion-item>
 
-    <ion-item color="light">
-      <span item-start>6 min</span>
-      <span item-start>(1 km)</span>
-      <button ion-button icon-start clear item-end>
-        <ion-icon name="navigate"></ion-icon>
-        Ir
-      </button>
-    </ion-item>
+    </ion-card>
 
-  </ion-card>
-</ion-content>
+
+    </ion-content>

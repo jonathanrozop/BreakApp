@@ -1,9 +1,19 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Pedidos
-    </ion-title>
+  <ion-navbar color="indigo">
+      <button ion-button menuToggle color="light">
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title color="light" >Pedidos</ion-title>
+      <ion-buttons right>
+          <button ion-button icon-only (click)="buyNow('bottom')">
+              <ion-badge *ngIf="totalItemsInCart" color="pink">{{ totalItemsInCart }}</ion-badge>
+              <ion-icon name="ios-cart"></ion-icon>
+          </button>
+      </ion-buttons>
   </ion-navbar>
+<ion-toolbar color="indigo">
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
+</ion-toolbar>
 </ion-header>
 <ion-content padding id="page4">
   <!--<form id="pedidos-form1">
@@ -14,7 +24,6 @@
       <img src="assets/imgs/panes.jpg" />
       <ion-item-sliding>
         <ion-item color="light" id="pedidos-list-item5">
-          <ion-icon name="NoIcon" item-left></ion-icon>
           <b>Pan Caliente</b>
           <p>Date gusto</p>
           <ion-icon name="more" item-right></ion-icon>
@@ -27,9 +36,8 @@
   </ion-card>
   <ion-card id="pedidos-card22">
     <ion-list>
-      <img src="assets/imgs/tortas.jpg" />
+      <img src="assets/imgs/tortas.jpg"/>
       <ion-item color="light" id="pedidos-list-item10">
-        <ion-icon name="NoIcon" item-left></ion-icon>
         <b>Tortas</b>
         <p>Celebra cada momento de tu vida</p>
         <ion-icon name="more" item-right></ion-icon>
@@ -40,7 +48,6 @@
     <ion-list>
       <img src="assets/imgs/postres.jpg" />
       <ion-item color="light" id="pedidos-list-item14">
-        <ion-icon name="NoIcon" item-left></ion-icon>
         <b>Postres y antojos</b>
         <p>No te quedes con las ganas</p>
         <ion-icon name="more" item-right></ion-icon>
