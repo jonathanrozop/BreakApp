@@ -1,14 +1,21 @@
-<ion-content padding text-center>
-<ion-title> BreakApp </ion-title>
-<ion-list>
-  <ion-item>
-    <ion-input placeholder="Username" [(ngModel)]="username"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input placeholder="password" type="password" [(ngModel)]="password"></ion-input>
-  </ion-item>
-</ion-list>
-<button ion-button full (click)="login()">log in </button>
-<button ion-button full color="light" (click)="goRegistre()">Registre </button>
+<ion-content no-bounce>
+  <video id="video" webkit-playsinLine playsinLine autoplay loop>
+    <source src="assets/videos/panaderia.mp4" tipo="video/mp4">
+  </video>
+<ion-card>
+     <ion-card-title> BreakApp </ion-card-title>
+  <ion-card-content>
+     <ion-list no-line>
+     <ion-item>
+     <ion-input placeholder="Username" [(ngModel)]="username"></ion-input>
+     </ion-item>
+     <ion-item>
+     <ion-input placeholder="password" type="password" [(ngModel)]="password"></ion-input>
+     </ion-item>
+     </ion-list>
+  </ion-card-content>
+</ion-card>
+<button ion-button black outline color="light" (click)="login()">log in </button>
+<button ion-button black outline color="light"(click)="showAlert()">Registre </button>
 
 </ion-content>
