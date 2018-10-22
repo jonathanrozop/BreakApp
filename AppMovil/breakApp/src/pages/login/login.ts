@@ -26,7 +26,7 @@ password:string;
   }
   login(){
     console.log("Username: "+ this.username);
-
+this.navCtrl.push('TabsPage');
     console.log("Password: "+ this.password);
 
   }
