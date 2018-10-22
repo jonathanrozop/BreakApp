@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { UserServiceProvider } from '../../providers/user-service/user-service';
+import { RestServiceProvider } from '../../providers/restService/restService';
 
 @IonicPage()
 @Component({
@@ -11,12 +11,12 @@ export class LocationsPage {
 
 bakeries: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restService: RestServiceProvider) {
 
   }
 
   ionViewDidLoad() {
-    this.userService.getBakeries()
+    this.restService.getBakeries()
     .subscribe(
       (data)=>{
         console.log(data);

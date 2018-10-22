@@ -14,7 +14,7 @@ import {LocationsPageModule} from "../pages/locations/locations.module";
 import {NotificationsPageModule} from "../pages/notifications/notifications.module";
 import {ShoppingPageModule} from "../pages/shopping/shopping.module";
 import {ProfilePageModule} from "../pages/profile/profile.module";
-import { UserServiceProvider } from '../providers/user-service/user-service';
+import { RestServiceProvider } from '../providers/restService/restService';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserServiceProvider
+    RestServiceProvider
   ]
 })
 export class AppModule {}

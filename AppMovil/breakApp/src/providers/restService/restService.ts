@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
   and Angular DI.
 */
 @Injectable()
-export class UserServiceProvider {
+export class RestServiceProvider {
 
   constructor(public http: HttpClient) {
     console.log('Hello UserServiceProvider Provider');
