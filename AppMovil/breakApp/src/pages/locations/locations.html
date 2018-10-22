@@ -23,8 +23,9 @@
   </ion-item>
 
 
-
-    <ion-card class="adv-map">
+<ion-list>
+  <ion-item *ngFor="let bakery of bakeries">
+    <ion-card class="adv-map" >
       <div style="position: relative">
       <img src="assets/imgs/panaderia1.gif">
         <ion-fab right top>
@@ -35,8 +36,8 @@
       </div>
       <ion-item>
         <ion-icon name="restaurant" color="subtle" item-start large></ion-icon>
-        <h2>Panaderia Castipan</h2>
-        <p>Calle 76 # 45-32</p>
+        <h2>{{bakery.nombre}}</h2>
+        <p>{{bakery.direccion}}</p>
         <button ion-button icon-start clear item-end color="rate">
           <ion-icon name="star"></ion-icon>
           <div>3 Estrellas</div>
@@ -53,8 +54,9 @@
       </ion-item>
 
     </ion-card>
-
-    <ion-card class="adv-map">
+  </ion-item>
+</ion-list>
+  <!--  <ion-card class="adv-map">
       <div style="position: relative">
         <img src="assets/imgs/panes.jpg">
 
@@ -113,7 +115,7 @@
         </button>
       </ion-item>
 
-    </ion-card>
+    </ion-card>-->
 
 
     </ion-content>

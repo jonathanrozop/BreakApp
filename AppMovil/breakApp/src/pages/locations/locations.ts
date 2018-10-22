@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LocationsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { UserServiceProvider } from '../../providers/user-service/user-service';
 
 @IonicPage()
 @Component({
@@ -15,10 +9,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LocationsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+bakeries: any[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserServiceProvider) {
+
   }
 
   ionViewDidLoad() {
+    this.userService.getBakeries()
+    .subscribe(
+      (data)=>{
+        console.log(data);
+        this.bakeries = data['data'];
+        console.log(this.bakeries);
+      },
+      (error)=>{
+        console.error(error);
+      }
+    )
     console.log('ionViewDidLoad LocationsPage');
   }
 
