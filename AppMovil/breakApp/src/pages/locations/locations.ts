@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { RestServiceProvider } from '../../providers/restService/restService';
+import { FormControl } from '@angular/forms';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
 
 @IonicPage()
 @Component({
@@ -8,11 +11,16 @@ import { RestServiceProvider } from '../../providers/restService/restService';
   templateUrl: 'locations.html',
 })
 export class LocationsPage {
-
+  searchTerm: string = '';
+   searchControl: FormControl;
 bakeries: any[];
 filteredBakeries: any[];
+filteredBakeriesFull: any[];
+
+searching: any = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public restService: RestServiceProvider, public loadingController: LoadingController) {
 this.options="explore";
+this.searchControl = new FormControl();
   }
 
   ionViewDidLoad() {
@@ -34,23 +42,49 @@ this.options="explore";
         }
 
         this.filteredBakeries = Object.assign([], this.bakeries);
+        this.filteredBakeriesFull = Object.assign([], this.bakeries);
         console.log(this.bakeries);
         loader.dismiss();
+        this.setFilteredItems();
+     this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
+     this.searching = false;
+     this.setFilteredItems();
+     });
       },
       (error)=>{
         console.error(error);
         loader.dismiss();
       }
     )
+
+  }
+
+  onSearchInput(){
+   this.searching = true;
+  }
+
+  setFilteredItems() {
+   this.filteredBakeries = this.filteredBakeriesFull.filter((item) => {
+     console.log(item);
+   return item.nombre.toLowerCase().indexOf(
+     this.searchTerm.toLowerCase()) > -1;
+   });
   }
 
   filterMenu(event){
+//if(this.options!=event.value){
+  //this.searchTerm="";
+//}
     this.filteredBakeries=[];
     this.filteredBakeries = Object.assign([], this.bakeries);
 
+    console.log(this.bakeries);
+console.log("||||||")
+console.log(this.filteredBakeries);
     if(event.value=='explore'){
       console.log("explore");
-      return;
+
+      //return;
     }
 
     if(event.value=='favorites'){
@@ -58,7 +92,8 @@ this.options="explore";
       this.filteredBakeries = this.filteredBakeries.filter((item)=>{
         return item.isFavorite;
       });
-      return;
+      //this.filterItems(this.searchTerm);
+    //  return;
     }
 
     if(event.value=='score'){
@@ -72,7 +107,12 @@ this.options="explore";
       }
       return 0;
     });
+    //console.log(this.filteredBakeries);
+    //this.filterItems(this.searchTerm);
     }
+  this.filteredBakeriesFull = Object.assign([], this.filteredBakeries);
+  this.setFilteredItems();
+
   }
 
   changeFavoriteStatus(bakery: any){
@@ -90,4 +130,11 @@ this.options="explore";
   rand(min: number, max: number): number {
          return (Math.random() * (max - min + 1) | 0) + min;
      }
+
+     filterItems(searchTerm){
+  return this.filteredBakeries.filter((item) => {
+   return item.nombre.toLowerCase().indexOf(
+     searchTerm.toLowerCase()) > -1;
+   });
+  }
 }
