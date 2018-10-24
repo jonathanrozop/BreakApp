@@ -15,6 +15,7 @@ import {NotificationsPageModule} from "../pages/notifications/notifications.modu
 import {ShoppingPageModule} from "../pages/shopping/shopping.module";
 import {ProfilePageModule} from "../pages/profile/profile.module";
 import { RestServiceProvider } from '../providers/restService/restService';
+import {TourPageModule} from "../pages/tour/tour.module";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RestServiceProvider } from '../providers/restService/restService';
     NotificationsPageModule,
     ShoppingPageModule,
     ProfilePageModule,
-
+    TourPageModule,
+    
     //Others
     BrowserModule,
     HttpClientModule,
