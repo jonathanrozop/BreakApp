@@ -4,6 +4,7 @@ import { RestServiceProvider } from '../../providers/restService/restService';
 import { FormControl } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 @IonicPage()
 @Component({
@@ -16,9 +17,11 @@ export class LocationsPage {
 bakeries: any[];
 filteredBakeries: any[];
 filteredBakeriesFull: any[];
+options:string;
 
 searching: any = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restService: RestServiceProvider, public loadingController: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restService: RestServiceProvider, public loadingController: LoadingController,
+   private launchNavigator : LaunchNavigator) {
 this.options="explore";
 this.searchControl = new FormControl();
   }
@@ -127,6 +130,15 @@ console.log(this.filteredBakeries);
     this.bakeries[index] = newItem;
   }
 
+howToGo(event){
+  console.log(event);
+      let destino = event.latitud+', '+event.longitud;
+      this.launchNavigator.navigate(destino)
+      .then(
+        success => console.log('Launched navigator'),
+        error => console.log('Error launching navigator', error)
+      );
+}
   rand(min: number, max: number): number {
          return (Math.random() * (max - min + 1) | 0) + min;
      }

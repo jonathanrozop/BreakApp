@@ -16,7 +16,7 @@ import {ShoppingPageModule} from "../pages/shopping/shopping.module";
 import {ProfilePageModule} from "../pages/profile/profile.module";
 import { RestServiceProvider } from '../providers/restService/restService';
 import {TourPageModule} from "../pages/tour/tour.module";
-
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 @NgModule({
   declarations: [
     MyApp,
@@ -30,7 +30,7 @@ import {TourPageModule} from "../pages/tour/tour.module";
     ShoppingPageModule,
     ProfilePageModule,
     TourPageModule,
-    
+
     //Others
     BrowserModule,
     HttpClientModule,
@@ -44,7 +44,8 @@ import {TourPageModule} from "../pages/tour/tour.module";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestServiceProvider
+    RestServiceProvider,
+    LaunchNavigator
   ]
 })
 export class AppModule {}

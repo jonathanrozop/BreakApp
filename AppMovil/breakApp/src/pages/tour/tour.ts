@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
+import { TabsPage} from '../tabs/tabs';
 import { LoginPage } from '../login/login';
 import { NotificationsPage } from '../notifications/notifications';
 /**
@@ -17,7 +17,7 @@ import { NotificationsPage } from '../notifications/notifications';
 })
 export class TourPage {
 
- skipMsg: string = "Skip";
+ skipMsg: string = "Saltar";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -27,7 +27,7 @@ export class TourPage {
   }
 
   skip() {
-    this.navCtrl.setRoot(LoginPage);
+    this.navCtrl.push(TabsPage);
   }
 
 
