@@ -31,10 +31,15 @@ this.searchControl = new FormControl();
       content: "Cargando"
     })
     loader.present();
+    console.log("aaca");
     this.restService.getBakeries()
     .subscribe(
       (data)=>{
+        console.log("aaca2");
+
         console.log(data);
+        console.log("aaca3");
+
         let temp1 = data['data'];
         this.bakeries=[];
         for(let i=0; i<temp1.length;i++){
